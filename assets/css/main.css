@@ -331,6 +331,14 @@ input, select, textarea {
 		border-bottom-color: rgba(255, 255, 255, 0.35);
 	}
 
+	.skill-logo {
+		width: 80px;  /* Default size */
+		height: auto;
+		display: block;
+		margin: 0 auto 10px;
+	}
+	
+
 /* Row */
 
 	.row {
