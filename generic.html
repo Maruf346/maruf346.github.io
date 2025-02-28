@@ -1,12 +1,8 @@
 <!DOCTYPE HTML>
-<!--
-	Stellar by HTML5 UP
-	html5up.net | @ajlkn
-	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
--->
+
 <html>
 	<head>
-		<title>Generic - Stellar by HTML5 UP</title>
+		<title>Maruf-CSE</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
@@ -19,8 +15,8 @@
 
 				<!-- Header -->
 					<header id="header">
-						<h1>Generic</h1>
-						<p>Ipsum dolor sit amet nullam</p>
+						<h1>More details..</h1>
+						<p>Thanks for visiting</p>
 					</header>
 
 				<!-- Main -->
@@ -28,44 +24,109 @@
 
 						<!-- Content -->
 							<section id="content" class="main">
-								<span class="image main"><img src="images/pic04.jpg" alt="" /></span>
-								<h2>Magna feugiat lorem</h2>
-								<p>Donec eget ex magna. Interdum et malesuada fames ac ante ipsum primis in faucibus. Pellentesque venenatis dolor imperdiet dolor mattis sagittis. Praesent rutrum sem diam, vitae egestas enim auctor sit amet. Pellentesque leo mauris, consectetur id ipsum sit amet, fergiat. Pellentesque in mi eu massa lacinia malesuada et a elit. Donec urna ex, lacinia in purus ac, pretium pulvinar mauris. Curabitur sapien risus, commodo eget turpis at, elementum convallis fames ac ante ipsum primis in faucibus.</p>
-								<p>Pellentesque venenatis dolor imperdiet dolor mattis sagittis. Praesent rutrum sem diam, vitae egestas enim auctor sit amet. Consequat leo mauris, consectetur id ipsum sit amet, fersapien risus, commodo eget turpis at, elementum convallis elit enim turpis lorem ipsum dolor sit amet feugiat. Phasellus convallis elit id ullamcorper pulvinar. Duis aliquam turpis mauris, eu ultricies erat malesuada quis. Aliquam dapibus, lacus eget hendrerit bibendum, urna est aliquam sem, sit amet est velit quis lorem.</p>
-								<h2>Tempus veroeros</h2>
-								<p>Cep risus aliquam gravida cep ut lacus amet. Adipiscing faucibus nunc placerat. Tempus adipiscing turpis non blandit accumsan eget lacinia nunc integer interdum amet aliquam ut orci non col ut ut praesent. Semper amet interdum mi. Phasellus enim laoreet ac ac commodo faucibus faucibus. Curae ante vestibulum ante. Blandit. Ante accumsan nisi eu placerat gravida placerat adipiscing in risus fusce vitae ac mi accumsan nunc in accumsan tempor blandit aliquet aliquet lobortis. Ultricies blandit lobortis praesent turpis. Adipiscing accumsan adipiscing adipiscing ac lacinia cep. Orci blandit a iaculis adipiscing ac. Vivamus ornare laoreet odio vis praesent nunc lorem mi. Erat. Tempus sem faucibus ac id. Vis in blandit. Nascetur ultricies blandit ac. Arcu aliquam. Accumsan mi eget adipiscing nulla. Non vestibulum ac interdum condimentum semper commodo massa arcu.</p>
+								<h2><b>My Journey</b></h2>
+								<div class="timeline">
+									<div class="event">
+										<h3>2022 – Ongoing</h3>
+										<p>B.Sc. in Computer Science & Engineering – Green University of Bangladesh</p>
+									</div>
+									<div class="event">
+										<h3>2024</h3>
+										<p>Started TrashToTreasure – A Waste Management Platform</p>
+									</div>
+									<div class="event">
+										<h3>2025</h3>
+										<p>Built PopcornReview – A Django-based Movie Review System</p>
+									</div>
+								</div>
+								<hr class="divider">
+								<h2><b>Fun Facts About Me</b></h2>
+								<ul>
+									<li>💡 I once debugged code for 12 hours straight and loved it!</li>
+									<li>🎮 I enjoy building indie games like "Behula’s Odyssey".</li>
+									<li>📚 My favorite book is "Clean Code" by Robert C. Martin.</li>
+									<li>🌍 I dream of using tech to solve environmental problems.</li>
+								</ul>
+								<hr class="divider">
+								<h2><b>My Skills</b></h2>
+								<canvas id="skillsChart" width="400" height="400"></canvas>
+								<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+								<script>
+									const ctx = document.getElementById('skillsChart').getContext('2d');
+									new Chart(ctx, {
+										type: 'radar',
+										data: {
+											labels: ['Python', 'Django', 'SQL', 'ReactJS', 'Data Analysis'],
+											datasets: [{
+												label: 'Skill Level',
+												data: [95, 90, 85, 75, 80],
+												borderColor: '#4CAF50',
+												backgroundColor: 'rgba(76, 175, 80, 0.2)'
+											}]
+										},
+									});
+								</script>
+								<hr class="divider">
+								<div>
+								<h2><b>My CV</b></h2>
+								<p>Download my CV to learn more about my work experience and projects.</p>
+								<a href="https://drive.google.com/file/d/1_M7sadPozu124qBEJkygzO7iebgxLSQq/view?usp=sharing" download="CV_Maruf.pdf" class="button primary">Download CV</a>
+								</div>
+								<hr class="divider">
+								
+								<h2>      </h2>
+								<h2 id="wizard"><b>Hidden Surprise </b>🧙‍♂️</h2>
+								<p>Click the wizard to reveal something fun!</p>
+
+								<!-- Hidden Message -->
+								<div id="secretMessage" style="display: none;">
+									🕵️‍♂️ <a href="https://make-everything-ok.com/" target="_blank">In case you are having a bad day, click here!</a>
+								</div>
+
+								<script>
+									// Ensure the event listener is bound to the correct element
+									document.getElementById("wizard").addEventListener("click", function() {
+										const secretMessage = document.getElementById("secretMessage");
+										
+										// Toggle the visibility of the secret message
+										if (secretMessage.style.display === "none") {
+											secretMessage.style.display = "block";
+										} else {
+											secretMessage.style.display = "none";
+										}
+									});
+								</script>
+
+
+
+
+
+
 							</section>
 
 					</div>
 
 				<!-- Footer -->
-					<footer id="footer">
-						<section>
-							<h2>Aliquam sed mauris</h2>
-							<p>Sed lorem ipsum dolor sit amet et nullam consequat feugiat consequat magna adipiscing tempus etiam dolore veroeros. eget dapibus mauris. Cras aliquet, nisl ut viverra sollicitudin, ligula erat egestas velit, vitae tincidunt odio.</p>
-							<ul class="actions">
-								<li><a href="#" class="button">Learn More</a></li>
-							</ul>
-						</section>
-						<section>
-							<h2>Etiam feugiat</h2>
-							<dl class="alt">
-								<dt>Address</dt>
-								<dd>1234 Somewhere Road &bull; Nashville, TN 00000 &bull; USA</dd>
-								<dt>Phone</dt>
-								<dd>(000) 000-0000 x 0000</dd>
-								<dt>Email</dt>
-								<dd><a href="#">information@untitled.tld</a></dd>
-							</dl>
-							<ul class="icons">
-								<li><a href="#" class="icon brands fa-twitter alt"><span class="label">Twitter</span></a></li>
-								<li><a href="#" class="icon brands fa-facebook-f alt"><span class="label">Facebook</span></a></li>
-								<li><a href="#" class="icon brands fa-instagram alt"><span class="label">Instagram</span></a></li>
-								<li><a href="#" class="icon brands fa-github alt"><span class="label">GitHub</span></a></li>
-								<li><a href="#" class="icon brands fa-dribbble alt"><span class="label">Dribbble</span></a></li>
-							</ul>
-						</section>
-						<p class="copyright">&copy; Untitled. Design: <a href="https://html5up.net">HTML5 UP</a>.</p>
+					
+				<section>
+					<h2>Contact</h2>
+					<dl class="alt">
+						<dt>Address</dt>
+						<dd>Kanchon 1460, Rupganj, Narayanganj</dd>
+						<dt>Phone</dt>
+						<dd>+880 1955-464096</dd>
+						<dt>Email</dt>
+						<dd><a href="mailto:maruf.bshs@gmail.com">maruf.bshs@gmail.com</a></dd>
+					</dl>
+					<ul class="icons">
+						<li><a href="https://github.com/Maruf346" class="icon brands fa-github alt"><span class="label">GitHub</span></a></li>
+						<li><a href="https://www.linkedin.com/in/maruf-hossain01/" class="icon brands fa-linkedin alt"><span class="label">Dribbble</span></a></li>
+						<li><a href="https://x.com/MdMaruf11413139" class="icon brands fa-twitter alt"><span class="label">Twitter</span></a></li>
+						<li><a href="https://www.facebook.com/mdmaruf.hossain.378199/" class="icon brands fa-facebook-f alt"><span class="label">Facebook</span></a></li>
+						<li><a href="https://www.instagram.com/mdmaruf3549/" class="icon brands fa-instagram alt"><span class="label">Instagram</span></a></li>
+						
+					</ul>
+				</section>
 					</footer>
 
 			</div>

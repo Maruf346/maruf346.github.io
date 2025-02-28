@@ -45,6 +45,52 @@ blockquote, q {
 		content: '';
 		content: none;
 	}
+	.project-image {
+		width: 200px; /* Set width for project images */
+		height: auto; /* Maintain aspect ratio */
+		border-radius: 6px; /* Optional: Rounded corners */
+		display: block; 
+		margin: 0 auto 20px; /* Center and add space below */
+	}
+	.project-image:hover {
+		opacity: 0.8; /* Optional: Lower opacity on hover */
+	}	
+
+	/* Education Section Styling */
+.education-container {
+    text-align: left; /* Aligns content to the left */
+    max-width: 800px; /* Restrict width for better readability */
+    margin: 0 auto; /* Centering the container */
+}
+
+.education-item {
+    margin-bottom: 20px; /* Spacing between items */
+}
+
+.education-item h3 {
+    margin: 0; /* Remove default margin */
+    font-size: 1.5rem; /* Larger heading for degree */
+}
+
+.education-item p {
+    margin: 5px 0; /* Smaller margin for institution */
+    font-size: 1.2rem;
+    font-weight: 500;
+}
+
+.education-item span {
+    display: block; /* Ensure the date is on a new line */
+    font-size: 1rem;
+    color: #888; /* Light gray for date */
+}
+/* Custom Divider Style */
+.divider {
+    border: 0;
+    height: 2px;               /* Thickness of the divider */
+    background: linear-gradient(to right, #4CAF50, transparent);
+    margin: 40px 0;             /* Space around the divider */
+}
+
 
 table {
 	border-collapse: collapse;
@@ -229,7 +275,7 @@ input, select, textarea {
 	h6 {
 		font-size: 0.7em;
 	}
-
+	
 	@media screen and (max-width: 736px) {
 
 		h1 {
