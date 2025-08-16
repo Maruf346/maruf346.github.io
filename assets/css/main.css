@@ -409,7 +409,7 @@ input, select, textarea {
 
 	.skill-grid img {
 	height: 60px;
-	width: 60px;
+	width: auto;
 	object-fit: contain;
 	transition: transform 0.3s ease;
 	}
