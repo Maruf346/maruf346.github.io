@@ -3919,6 +3919,13 @@ td:last-child {
     padding-left : 0;
 }
 
+.s-about__list li .timeline {
+    font-size: 0.8rem;
+    color: #ada9a9; /* or your theme color */
+    font-weight: 500;
+    margin-top: 0.25rem;
+}
+
 .s-about__list span {
     display    : block;
     font-size  : var(--text-sm);
