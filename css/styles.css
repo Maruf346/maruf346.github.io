@@ -4180,9 +4180,14 @@ td:last-child {
     color         : var(--color-3-dark);
 }
 
-.counter-items span {
+.counter-items .counter-suffix {
     font-size  : 0.5em;
     margin-left: 0.1em;
+}
+
+.counter-items .counter-value {
+    font: inherit;
+    letter-spacing: inherit;
 }
 
 /* ------------------------------------------------------------------- 

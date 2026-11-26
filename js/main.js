@@ -284,6 +284,74 @@
     }; // end ssScrollReveal
 
 
+   /* animated statistics
+    * ------------------------------------------------------ */
+    const ssCounters = function() {
+
+        const counterSection = document.querySelector('.s-numbers');
+        const counters = document.querySelectorAll('[data-counter-target]');
+        const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+        if (!(counterSection && counters.length)) return;
+
+        const setCounterValue = function(counter, value) {
+            const valueElement = counter.querySelector('.counter-value');
+            const unit = counter.dataset.counterUnit || '';
+
+            if (valueElement) valueElement.textContent = `${value}${unit}`;
+        };
+
+        const showFinalValues = function() {
+            counters.forEach(function(counter) {
+                setCounterValue(counter, Number(counter.dataset.counterTarget));
+            });
+        };
+
+        if (reduceMotion || !('IntersectionObserver' in window)) {
+            showFinalValues();
+            return;
+        }
+
+        // Start from zero only after JavaScript has confirmed that animation is available.
+        counters.forEach(function(counter) {
+            setCounterValue(counter, 0);
+        });
+
+        const observer = new IntersectionObserver(function(entries) {
+            if (!entries[0].isIntersecting) return;
+
+            observer.disconnect();
+
+            const duration = 2200;
+            const startTime = performance.now();
+
+            const updateCounters = function(currentTime) {
+                const progress = Math.min((currentTime - startTime) / duration, 1);
+                const easedProgress = 1 - Math.pow(1 - progress, 3);
+
+                counters.forEach(function(counter) {
+                    const target = Number(counter.dataset.counterTarget);
+                    setCounterValue(counter, Math.round(target * easedProgress));
+                });
+
+                if (progress < 1) {
+                    window.requestAnimationFrame(updateCounters);
+                } else {
+                    showFinalValues();
+                }
+            };
+
+            window.requestAnimationFrame(updateCounters);
+        }, {
+            rootMargin: '0px 0px -12% 0px',
+            threshold: 0.25
+        });
+
+        observer.observe(counterSection);
+
+    }; // end ssCounters
+
+
     /* Back to Top
     * ------------------------------------------------------ */
     const ssBackToTop = function() {
@@ -362,6 +430,7 @@
         ssSwiper();
         ssAlertBoxes();
         ssScrollReveal();
+        ssCounters();
         ssBackToTop();
         ssMoveTo();
 
