@@ -230,6 +230,60 @@
     }; // end ssAlertBoxes
 
 
+   /* scroll reveal
+    * ------------------------------------------------------ */
+    const ssScrollReveal = function() {
+
+        const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+        const revealGroups = [
+            { selector: '.s-about .section-header, .s-about .attention-getter', step: 110 },
+            { selector: '.s-about__block', step: 130 },
+            { selector: '.s-works .section-header', step: 0 },
+            { selector: '.folio-entries .entry', step: 90 },
+            { selector: '.s-testimonials__header, .s-testimonials__slider', step: 120 },
+            { selector: '.counter-items__item', step: 100 },
+            { selector: '.s-footer .section-header, .s-footer__block, .s-footer__buttons, .s-footer__bottom', step: 110 }
+        ];
+
+        const revealItems = [];
+
+        revealGroups.forEach(function(group) {
+            document.querySelectorAll(group.selector).forEach(function(item, index) {
+                item.classList.add('reveal');
+                item.style.setProperty('--reveal-delay', `${Math.min(index * group.step, 450)}ms`);
+                revealItems.push(item);
+            });
+        });
+
+        if (!revealItems.length) return;
+
+        // Keep all content immediately available for visitors who prefer less motion.
+        if (reduceMotion.matches || !('IntersectionObserver' in window)) {
+            revealItems.forEach(function(item) {
+                item.classList.add('is-visible');
+            });
+            return;
+        }
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(function(entry) {
+                if (!entry.isIntersecting) return;
+
+                entry.target.classList.add('is-visible');
+                observer.unobserve(entry.target);
+            });
+        }, {
+            rootMargin: '0px 0px -10% 0px',
+            threshold: 0.12
+        });
+
+        revealItems.forEach(function(item) {
+            observer.observe(item);
+        });
+
+    }; // end ssScrollReveal
+
+
     /* Back to Top
     * ------------------------------------------------------ */
     const ssBackToTop = function() {
@@ -307,6 +361,8 @@
         ssGLightbox();
         ssSwiper();
         ssAlertBoxes();
+        ssScrollReveal();
+        ssBackToTop();
         ssMoveTo();
 
     })();

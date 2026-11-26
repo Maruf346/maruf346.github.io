@@ -4448,3 +4448,172 @@ td:last-child {
         right: -2rem;
     }
 }
+
+
+/* ===================================================================
+ * # MOTION SYSTEM
+ *
+ * Shared, restrained motion for content entering the viewport and for
+ * interactive portfolio elements. Transform and opacity keep it smooth.
+ * ------------------------------------------------------------------- */
+:root {
+    --motion-ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+    --motion-duration: 900ms;
+}
+
+.reveal {
+    opacity: 0;
+    transform: translate3d(0, 3.2rem, 0);
+    transition:
+        opacity var(--motion-duration) var(--motion-ease-out),
+        transform var(--motion-duration) var(--motion-ease-out);
+    transition-delay: var(--reveal-delay, 0ms);
+    will-change: opacity, transform;
+}
+
+.reveal.is-visible {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+    will-change: auto;
+}
+
+/* Let project rows arrive from subtly different directions. */
+.folio-entries .entry.reveal:nth-child(odd) {
+    transform: translate3d(-2.4rem, 3.2rem, 0);
+}
+
+.folio-entries .entry.reveal:nth-child(even) {
+    transform: translate3d(2.4rem, 3.2rem, 0);
+}
+
+.folio-entries .entry.reveal.is-visible {
+    transform: translate3d(0, 0, 0);
+}
+
+/* Slower, softer project interactions than the original template. */
+.folio-entries .entry__link {
+    overflow: hidden;
+}
+
+.folio-entries .entry__link img {
+    transition: transform 800ms var(--motion-ease-out);
+    will-change: transform;
+}
+
+.folio-entries .entry__link::before {
+    transition: opacity 650ms var(--motion-ease-out), visibility 650ms;
+}
+
+.folio-entries .entry__info {
+    transition:
+        opacity 650ms var(--motion-ease-out),
+        transform 650ms var(--motion-ease-out),
+        visibility 650ms;
+}
+
+.folio-entries .entry:hover .entry__info,
+.folio-entries .entry:focus-within .entry__info {
+    transition:
+        opacity 650ms var(--motion-ease-out),
+        transform 650ms var(--motion-ease-out),
+        visibility 650ms;
+    transition-delay: 100ms;
+}
+
+.folio-entries .entry:hover .entry__link img,
+.folio-entries .entry:focus-within .entry__link img {
+    transform: scale(1.035);
+}
+
+.folio-entries .entry:focus-within .entry__link::before {
+    opacity: 1;
+    visibility: visible;
+}
+
+.folio-entries .entry:focus-within .entry__info {
+    transform: translate(-50%, -50%);
+    opacity: 1;
+    visibility: visible;
+}
+
+.btn,
+.social-list a,
+.ss-go-top a {
+    transition:
+        color 350ms ease,
+        background-color 350ms ease,
+        border-color 350ms ease,
+        transform 350ms var(--motion-ease-out);
+}
+
+.btn:hover,
+.btn:focus-visible {
+    transform: translateY(-2px);
+}
+
+.social-list a:hover,
+.social-list a:focus-visible,
+.ss-go-top a:hover,
+.ss-go-top a:focus-visible {
+    transform: translateY(-3px);
+}
+
+/* Refine the existing opening sequence: deliberate, but not theatrical. */
+.s-header__inner,
+.s-intro__content-media,
+.s-intro__content-title,
+.s-intro__content-pretitle,
+.s-intro__content-btns,
+.s-intro__btn-download,
+.s-intro__social,
+.s-intro__scroll-down {
+    transition-duration: 900ms;
+    transition-timing-function: var(--motion-ease-out);
+}
+
+.s-intro__content-pretitle {
+    transform: translate(0.2em, 4rem);
+}
+
+.s-intro__content-title,
+.s-intro__content-btns {
+    transform: translateY(4.8rem);
+}
+
+.s-intro__btn-download {
+    transform: translateX(-4.8rem);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html:focus-within {
+        scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        transition-delay: 0ms !important;
+    }
+
+    .reveal,
+    .folio-entries .entry.reveal:nth-child(odd),
+    .folio-entries .entry.reveal:nth-child(even) {
+        opacity: 1;
+        transform: none;
+    }
+
+    .folio-entries .entry:hover .entry__link img,
+    .folio-entries .entry:focus-within .entry__link img,
+    .btn:hover,
+    .btn:focus-visible,
+    .social-list a:hover,
+    .social-list a:focus-visible,
+    .ss-go-top a:hover,
+    .ss-go-top a:focus-visible {
+        transform: none;
+    }
+}
